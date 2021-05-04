@@ -10,12 +10,12 @@ primary key(city,streetName))
 create table Departments (
 departmentName nvarchar(30) primary key)
 
--- Departments: ωιεεχ, αχψϊ ΰωψΰι, ϊτςεμ δρλξιν, λμμι, μχεη
+-- Departments: Χ©Χ™Χ•Χ•Χ§, Χ‘Χ§Χ¨Χª ΧΧ©Χ¨ΧΧ™, ΧªΧ¤ΧΆΧ•Χ Χ”Χ΅Χ›ΧΧ™Χ, Χ›ΧΧΧ™, ΧΧ§Χ•Χ—
 
 create table Roles (
 roleTitle nvarchar(30) primary key)
 
--- Roles: ξωεεχ, ξπδμ, πφιβ, λμμι, μχεη
+-- Roles: ΧΧ©Χ•Χ•Χ§, ΧΧ Χ”Χ, Χ Χ¦Χ™Χ’, Χ›ΧΧΧ™, ΧΧ§Χ•Χ—
 
 create table Position (
 positionNo int IDENTITY primary key,
@@ -119,18 +119,18 @@ create table ProcessStages (
 stageName nvarchar(30) primary key )
 
 --process Stages
--- τϊιηϊ αχωϊ δφθψτεϊ 
--- ΰιωεψ ϊπΰιν ξρηψιιν
--- ηϊιξδ ςμ δρλν δφθψτεϊ
--- αχψϊ ΰωψΰι
--- αχψϊ ΰωψΰι ξχιτδ
--- δωμξϊ αιθηεπεϊ
--- δωμξϊ πϊεπιν
--- αγιχϊ ϊχιπεϊ δδρλν
--- ςγλεο ϊπΰιν ξρηψιιν 
--- ξΰεωψ μδχξδ
--- αχωϊ αιθεμ
--- ξαεθμ
+-- Χ¤ΧªΧ™Χ—Χª Χ‘Χ§Χ©Χª Χ”Χ¦ΧΧ¨Χ¤Χ•Χª 
+-- ΧΧ™Χ©Χ•Χ¨ ΧªΧ ΧΧ™Χ ΧΧ΅Χ—Χ¨Χ™Χ™Χ
+-- Χ—ΧªΧ™ΧΧ” ΧΆΧ Χ”Χ΅Χ›Χ Χ”Χ¦ΧΧ¨Χ¤Χ•Χª
+-- Χ‘Χ§Χ¨Χª ΧΧ©Χ¨ΧΧ™
+-- Χ‘Χ§Χ¨Χª ΧΧ©Χ¨ΧΧ™ ΧΧ§Χ™Χ¤Χ”
+-- Χ”Χ©ΧΧΧª Χ‘Χ™ΧΧ—Χ•Χ Χ•Χª
+-- Χ”Χ©ΧΧΧª Χ ΧªΧ•Χ Χ™Χ
+-- Χ‘Χ“Χ™Χ§Χª ΧªΧ§Χ™Χ Χ•Χª Χ”Χ”Χ΅Χ›Χ
+-- ΧΆΧ“Χ›Χ•Χ ΧªΧ ΧΧ™Χ ΧΧ΅Χ—Χ¨Χ™Χ™Χ 
+-- ΧΧΧ•Χ©Χ¨ ΧΧ”Χ§ΧΧ”
+-- Χ‘Χ§Χ©Χª Χ‘Χ™ΧΧ•Χ
+-- ΧΧ‘Χ•ΧΧ
 
 
 create table StagePermissions (
@@ -140,18 +140,18 @@ positionNo int references Position(positionNo) constraint StagePermissions_posit
 constraint StagePermissions_uniqueStageNameAndRole unique(stageName,positionNo))
 
 -- Stages and permissions:
--- τϊιηϊ αχωϊ δφθψτεϊ - ξωεεχ ξημχϊ ωιεεχ 
--- ΰιωεψ ϊπΰιν ξρηψιιν - ξπδμ ξημχϊ ωιεεχ
--- ηϊιξδ ςμ δρλν δφθψτεϊ - μχεη μχεη
--- αχψϊ ΰωψΰι - πφιβ ξημχϊ αχψϊ ΰωψΰι
--- αχψϊ ΰωψΰι ξχιτδ - ξπδμ ξημχϊ αχψϊ ΰωψΰι
--- δωμξϊ αιθηεπεϊ - ξωεεχ ξημχϊ ωιεεχ
--- δωμξϊ πϊεπιν - ξωεεχ ξημχϊ ωιεεχ
--- ςγλεο ϊπΰιν ξρηψιιν - ξωεεχ ξημχϊ ωιεεχ
--- αγιχϊ ϊχιπεϊ δδρλν - πφιβ ξημχϊ ϊτςεμ δρλξιν
--- ξΰεωψ μδχξδ - ξωεεχ ξημχϊ ωιεεχ 
--- αχωϊ αιθεμ - ξωεεχ ξημχϊ ωιεεχ
--- ξαεθμ - ξωεεχ ξημχϊ ωιεεχ
+-- Χ¤ΧªΧ™Χ—Χª Χ‘Χ§Χ©Χª Χ”Χ¦ΧΧ¨Χ¤Χ•Χª - ΧΧ©Χ•Χ•Χ§ ΧΧ—ΧΧ§Χª Χ©Χ™Χ•Χ•Χ§ 
+-- ΧΧ™Χ©Χ•Χ¨ ΧªΧ ΧΧ™Χ ΧΧ΅Χ—Χ¨Χ™Χ™Χ - ΧΧ Χ”Χ ΧΧ—ΧΧ§Χª Χ©Χ™Χ•Χ•Χ§
+-- Χ—ΧªΧ™ΧΧ” ΧΆΧ Χ”Χ΅Χ›Χ Χ”Χ¦ΧΧ¨Χ¤Χ•Χª - ΧΧ§Χ•Χ— ΧΧ§Χ•Χ—
+-- Χ‘Χ§Χ¨Χª ΧΧ©Χ¨ΧΧ™ - Χ Χ¦Χ™Χ’ ΧΧ—ΧΧ§Χª Χ‘Χ§Χ¨Χª ΧΧ©Χ¨ΧΧ™
+-- Χ‘Χ§Χ¨Χª ΧΧ©Χ¨ΧΧ™ ΧΧ§Χ™Χ¤Χ” - ΧΧ Χ”Χ ΧΧ—ΧΧ§Χª Χ‘Χ§Χ¨Χª ΧΧ©Χ¨ΧΧ™
+-- Χ”Χ©ΧΧΧª Χ‘Χ™ΧΧ—Χ•Χ Χ•Χª - ΧΧ©Χ•Χ•Χ§ ΧΧ—ΧΧ§Χª Χ©Χ™Χ•Χ•Χ§
+-- Χ”Χ©ΧΧΧª Χ ΧªΧ•Χ Χ™Χ - ΧΧ©Χ•Χ•Χ§ ΧΧ—ΧΧ§Χª Χ©Χ™Χ•Χ•Χ§
+-- ΧΆΧ“Χ›Χ•Χ ΧªΧ ΧΧ™Χ ΧΧ΅Χ—Χ¨Χ™Χ™Χ - ΧΧ©Χ•Χ•Χ§ ΧΧ—ΧΧ§Χª Χ©Χ™Χ•Χ•Χ§
+-- Χ‘Χ“Χ™Χ§Χª ΧªΧ§Χ™Χ Χ•Χª Χ”Χ”Χ΅Χ›Χ - Χ Χ¦Χ™Χ’ ΧΧ—ΧΧ§Χª ΧªΧ¤ΧΆΧ•Χ Χ”Χ΅Χ›ΧΧ™Χ
+-- ΧΧΧ•Χ©Χ¨ ΧΧ”Χ§ΧΧ” - ΧΧ©Χ•Χ•Χ§ ΧΧ—ΧΧ§Χª Χ©Χ™Χ•Χ•Χ§ 
+-- Χ‘Χ§Χ©Χª Χ‘Χ™ΧΧ•Χ - ΧΧ©Χ•Χ•Χ§ ΧΧ—ΧΧ§Χª Χ©Χ™Χ•Χ•Χ§
+-- ΧΧ‘Χ•ΧΧ - ΧΧ©Χ•Χ•Χ§ ΧΧ—ΧΧ§Χª Χ©Χ™Χ•Χ•Χ§
 
 create table Status (
 customerNo int references Customers(customerNo),
@@ -175,20 +175,20 @@ startDate datetime,
 foreign key (customerNo,status,startDate) references Status(customerNo,stageName,startDate))
 
 -- file type
--- ΰιωεψ πιδεμ ηωαεο
--- αιθηεπεϊ
--- δρλν δφθψτεϊ
--- γεη αγιχδ τιππριϊ
--- γεη αγιχδ τιππριϊ ξχιτδ
--- ΰιωεψ πιλει ξρ αξχεψ επιδεμ ρτψιν
--- ΰιωεψ πιδεμ ηωαεο απχ
--- ΰηψ
+-- ΧΧ™Χ©Χ•Χ¨ Χ Χ™Χ”Χ•Χ Χ—Χ©Χ‘Χ•Χ
+-- Χ‘Χ™ΧΧ—Χ•Χ Χ•Χª
+-- Χ”Χ΅Χ›Χ Χ”Χ¦ΧΧ¨Χ¤Χ•Χª
+-- Χ“Χ•Χ— Χ‘Χ“Χ™Χ§Χ” Χ¤Χ™Χ Χ Χ΅Χ™Χª
+-- Χ“Χ•Χ— Χ‘Χ“Χ™Χ§Χ” Χ¤Χ™Χ Χ Χ΅Χ™Χª ΧΧ§Χ™Χ¤Χ”
+-- ΧΧ™Χ©Χ•Χ¨ Χ Χ™Χ›Χ•Χ™ ΧΧ΅ Χ‘ΧΧ§Χ•Χ¨ Χ•Χ Χ™Χ”Χ•Χ Χ΅Χ¤Χ¨Χ™Χ
+-- ΧΧ™Χ©Χ•Χ¨ Χ Χ™Χ”Χ•Χ Χ—Χ©Χ‘Χ•Χ Χ‘Χ Χ§
+-- ΧΧ—Χ¨
 
 
 -- Business rules & triggers:
 -- 1. if Customers(BenzineConsumption) is not null then Customers(BenzineDiscount) is not null
 -- 2. if Customers(SolerConsumption) is not null then Customers(SolerDiscount) is not null
--- 3. Customers(RecruitBy) can only be a user when Users(PositionNo) = [insert later the number related to Position(RoleTitle) = 'ξωεεχ']
+-- 3. Customers(RecruitBy) can only be a user when Users(PositionNo) = [insert later the number related to Position(RoleTitle) = 'Γ®ΓΉΓ¥Γ¥Γ·']
 -- 4. if Customers(ModeOfPayment) = 'credit' then Customers(CreditCardNo, CreditCardOwnerFirstName, 
 --    CreditCardOwnerLastName, CreditCardOwnerID, ExpirationYear, ExpirationMonth, CVV) is not null
 -- 5. if Customers(ModeOfPayment) = 'bank' then Customers(BankNo, BranchNo, BankAccountNo) is not null
