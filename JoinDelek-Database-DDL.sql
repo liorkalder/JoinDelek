@@ -109,6 +109,9 @@ maxDiscountMarketing tinyint constraint Discounts_maxDiscountMarketing_notNull n
 maxDiscountManager tinyint constraint Discounts_maxDiscountManager_notNull not null, 
 constraint Discounts_maxConsumption_LargerThan_MinConsumption check (maxConsumption > minConsumption),
 constraint Discounts_maxDiscountManager_LargerThan_maxDiscountMarketing check (maxDiscountManager >= maxDiscountMarketing))
+                                                                               
+--B = Benzine, S = Soler
+
 
 create table CostumersDiscount (
 customerNo int references Customers(customerNo),
@@ -188,20 +191,19 @@ foreign key (customerNo,status,startDate) references Status(customerNo,stageName
 -- Business rules & triggers:
 -- 1. if Customers(BenzineConsumption) is not null then Customers(BenzineDiscount) is not null
 -- 2. if Customers(SolerConsumption) is not null then Customers(SolerDiscount) is not null
--- 3. Customers(RecruitBy) can only be a user when Users(PositionNo) = [insert later the number related to Position(RoleTitle) = 'îùåå÷']
+-- 3. Customers(RecruitBy) can only be a user where Users(PositionNo) = ?? --> Position(RoleTitle) = "משווק"
 -- 4. if Customers(ModeOfPayment) = 'credit' then Customers(CreditCardNo, CreditCardOwnerFirstName, 
 --    CreditCardOwnerLastName, CreditCardOwnerID, ExpirationYear, ExpirationMonth, CVV) is not null
 -- 5. if Customers(ModeOfPayment) = 'bank' then Customers(BankNo, BranchNo, BankAccountNo) is not null
--- 6. if Customers(ModeOfPayment) and Customers(Type) = 'P' then 
+-- 6. if Customers(ModeOfPayment) = 'bank' and Customers(Type) = 'P' then 
 --    PrivateCustomers(BankOwnerFirstName, BankOwnerLastName, BankOwnerID) is not null
 -- 7. if Customers(Type) = 'B' then Customers(BankNo, BranchNo, BankAccountNo) is not null
--- 8. if Discounts(Type) = 'D' then CostumersDiscount(DiscountNo) = Discounts(DiscountNo) 
+-- 8. if Discounts(Type) = 'S' then CostumersDiscount(DiscountNo) = Discounts(DiscountNo) 
 --    where get max Discounts(MinConsumption) < Customers(SolerConsumption)
--- 9. if Discounts(Type) = 'P' then CostumersDiscount(DiscountNo) = Discounts(DiscountNo) 
+-- 9. if Discounts(Type) = 'B' then CostumersDiscount(DiscountNo) = Discounts(DiscountNo) 
 --    where get max Discounts(MinConsumption) < Customers(BenzineDiscount)
--- 10. Customers(BenzineDiscount) <= Discounts(MaxDiscountManager) where Discounts(Type) = 'P' 
+-- 10. Customers(BenzineDiscount) <= Discounts(MaxDiscountManager) where Discounts(Type) = 'B' 
 --     based on Customer(CustomerNo) and CostumersDiscount(DiscountNo) 
--- 11. Customers(SolerConsumption) <= Discounts(MaxDiscountManager) where Discounts(Type) = 'D'
+-- 11. Customers(SolerConsumption) <= Discounts(MaxDiscountManager) where Discounts(Type) = 'S'
 --     based on Customer(CustomerNo) and CostumersDiscount(DiscountNo)
--- 12. consider adding notification or limiting all together 
 
